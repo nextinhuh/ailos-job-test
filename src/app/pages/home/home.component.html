@@ -1,0 +1,35 @@
+<div class="home-container" [class.home-mobile]="mediaQueryList.matches">
+  <mat-sidenav-container class="home-sidenav-container" [style.marginTop.px]="mediaQueryList.matches ? 56 : 0">
+    <mat-sidenav class="menu p-4" #sidenav [opened]="openMenu" (openedChange)="saveMenuState($event)"
+      [mode]="mediaQueryList.matches ? 'over' : 'side'" [fixedInViewport]="mediaQueryList.matches" fixedTopGap="56"
+      color="primary">
+
+      <a class="navbar-brand mx-2" routerLink="/home"><img src="../../../assets/logo_ailos.png" class="img-fluid"
+          alt="logo"></a>
+
+      <mat-nav-list>
+        <a class="mt-5" href="#" mat-list-item routerLink="/home/admission" routerLinkActive="text-secondary">
+          <mat-icon class="mx-2 mat-icon-sidenav">menu</mat-icon>
+        </a>
+
+        <a class="mt-5" href="#" mat-list-item>
+          <mat-icon class="mx-2 mat-icon-sidenav">star_border</mat-icon>
+        </a>
+
+        <a class="mt-5" href="#" mat-list-item>
+          <mat-icon class="mx-2 mat-icon-sidenav">sms</mat-icon>
+        </a>
+        <a class="mt-5" href="#" mat-list-item>
+          <mat-icon class="mx-2 mat-icon-sidenav">tune</mat-icon>
+        </a>
+        <a class="mt-5" href="#" mat-list-item>
+          <mat-icon class="mx-2 mat-icon-sidenav">account_balance</mat-icon>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
