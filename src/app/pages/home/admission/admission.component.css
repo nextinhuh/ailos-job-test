@@ -1,0 +1,63 @@
+.container-custom {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+
+.stepper-custom {
+  background-color: transparent;
+  width: 100%;
+  padding: 44px;
+}
+
+.title-form {
+  font-family: 'Open Sans';
+  font-size: 22px;
+  line-height: 30px;
+  color: #101213;
+}
+
+.description-form {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  line-height: 15px;
+  color: #4F575E;
+  max-width: 620px;
+}
+
+.button-submit {
+  height: 50px;
+  width: 170px;
+  border-radius: 4px;
+  background-color: #165C7D;
+
+  color: #FFF;
+  font-family: 'Open Sans';
+  font-size: 18px;
+  line-height: 19px;
+}
+
+footer {
+  position: absolute;
+  height: 10%;
+  width: 100%;
+  bottom: 0px;
+  left: 0;
+  background-color: white;
+  display: flex;
+  padding: 36px;
+}
+
+footer button {
+  height: 48px;
+  width: 275px;
+  border-radius: 4px;
+  border: 1px solid #125D79;
+  background-color: #FFF;
+
+  color: #165C7D;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+}

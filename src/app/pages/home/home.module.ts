@@ -6,6 +6,8 @@ import { AdmissionComponent } from './admission/admission.component';
 import { HomeComponent } from './home.component';
 import { MaterialModule } from 'src/app/modules/material.modules';
 import { HeaderComponent } from './shared/header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { HeaderComponent } from './shared/header/header.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forChild(),
   ]
 })
 export class HomeModule { }

@@ -1,7 +1,61 @@
 <app-header title="NOVA ADMISSÃO COOPERADO"></app-header>
 
-<mat-card>
-  <form class="py-lg-2 px-lg-2">
+<div class="container-custom">
+  <mat-stepper class="stepper-custom" linear="true" labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="startGroup">
+      <h4 class="title-form">Informe o CPF do futuro cooperado (a)</h4>
+      <p class="description-form">Se necessário, você poderá duplicar uma conta existente ou pausar e retomar este
+        cadastro futuramente.
+        Digite apenas os números (sem pontos ou traços).</p>
 
-  </form>
-</mat-card>
+      <form [formGroup]="startGroup">
+        <ng-template matStepLabel>Inicio</ng-template>
+
+        <div class="row mt-4">
+          <mat-form-field class="col-sm-2" appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput placeholder="000.000.000-00" mask="000.000.000-00" formControlName="cpf">
+            <mat-error *ngIf="startGroup.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <button class="button-submit" type="submit" mat-button matStepperNext>Consultar por CPF</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field appearance="fill">
+          <ng-template matStepLabel>Documentos</ng-template>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Dados cadastrais</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Admissão</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>
+
+<footer>
+  <button mat-button>Dicas para abertura da conta</button>
+</footer>
