@@ -1,0 +1,62 @@
+.container2 {
+  height: 100px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  padding: 36px;
+  justify-content: space-between;
+
+}
+
+.container h1 {
+  font-family: Exo;
+  color: black;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 16px;
+  width: 350px;
+  margin-top: 24px;
+}
+
+.button-container mat-icon {
+  font-size: 35px;
+  height: 35px;
+  width: 35px;
+}
+
+.button-container button {
+  height: 35px;
+  width: 110px;
+  border-radius: 15px;
+  border: 3px solid #125D79;
+  background-color: #FFF;
+
+  color: #125D79;
+  font-family: Exo;
+  font-weight: bold;
+}
+
+.avatar {
+  border-width: 3px;
+  border-color: #125D79;
+}
+
+.avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+
+  border: 3px solid #125D79;
+}
+
+.mat-icon-avatar {
+  position: absolute;
+  right: 78px;
+  top: 62px;
+  color: #125D79;
+}

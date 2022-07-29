@@ -1,0 +1,90 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$dark-text: #222f3b;
+$light-text: #FFFFFF;
+
+$primary: (
+  50: #FFFFFF,
+  100: #FFFFFF,
+  200: #D0DEE5,
+  300: #FFFFFF,
+  400: #A2BECB,
+  500: #FFFFFF,
+  600: #739DB1,
+  700: #457D97,
+  800: #165C7D,
+  900: #013F5C,
+  1000: #012F44,
+  contrast: (50: $dark-text,
+    100: $dark-text,
+    200: $dark-text,
+    300: $dark-text,
+    400: $dark-text,
+    500: $light-text,
+    600: $light-text,
+    700: $light-text,
+    800: $light-text,
+    900: $light-text,
+  )
+);
+
+$secondary: (
+  50: #FFEDCC,
+  100: #FFDA99,
+  200: #FFC866,
+  300: #FFB533,
+  400: #FFA300,
+  500: #C37D00,
+  600: #FFFFFF,
+  700: #FFFFFF,
+  800: #FFFFFF,
+  900: #FFFFFF,
+  1000: #FFFFFF,
+  contrast: (50: $dark-text,
+    100: $dark-text,
+    200: $dark-text,
+    300: $dark-text,
+    400: $dark-text,
+    500: $dark-text,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ailos-test-primary: mat.define-palette($primary, 800);
+$ailos-test-accent: mat.define-palette($secondary, 400);
+
+// The warn palette is optional (defaults to red).
+$ailos-test-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ailos-test-theme: mat.define-light-theme((color: (primary: $ailos-test-primary,
+        accent: $ailos-test-accent,
+        warn: $ailos-test-warn,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($ailos-test-theme);
+
+body {
+  margin: 0 !important;
+  font-family: Exo, sans-serif !important;
+  background-color: rgb(232, 239, 242);
+}
+
+.menu {
+  background-color: #165C7D;
+  max-width: 140px;
+}
