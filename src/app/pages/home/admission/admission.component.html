@@ -8,7 +8,7 @@
         cadastro futuramente.
         Digite apenas os números (sem pontos ou traços).</p>
 
-      <form [formGroup]="startGroup">
+      <form [formGroup]="startGroup" (ngSubmit)="onSubmit()">
         <ng-template matStepLabel>Inicio</ng-template>
 
         <div class="row mt-4">
@@ -18,40 +18,116 @@
             <mat-error *ngIf="startGroup.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
-          <button class="button-submit" type="submit" mat-button matStepperNext>Consultar por CPF</button>
+          <button class="button-submit" type="submit" mat-raised-button>
+            <ng-container *ngIf="isLoading">
+              <mat-progress-spinner class="example-margin" mode="indeterminate" diameter="30">
+              </mat-progress-spinner>
+            </ng-container>
+            <ng-container *ngIf="!isLoading">Consultar por CPF</ng-container>
+          </button>
         </div>
       </form>
+
+      <div class="row" *ngIf="showCard">
+        <div class="col-sm-3">
+          <mat-card>
+            <mat-card-title-group>
+              <mat-card-title class="card-title">Situação cadastral do CPF</mat-card-title>
+              <mat-card-subtitle class="card-description">Consulta na Receita Federal</mat-card-subtitle>
+            </mat-card-title-group>
+
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-2 offset-sm-1">
+                  <mat-icon>person</mat-icon>
+                </div>
+
+                <div class="col-sm-8">
+                  <mat-card-subtitle>Nome</mat-card-subtitle>
+                  <p class="card-content-description">Mariane de Sousa Oliveira</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-2 offset-sm-1">
+                  <mat-icon class="icon-check-custom">check_circle_outline</mat-icon>
+                </div>
+
+                <div class="col-sm-8">
+                  <mat-card-subtitle>Situação do CPF</mat-card-subtitle>
+                  <p class="card-content-description">Regular</p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="col-sm-3">
+          <mat-card>
+            <mat-card-title-group>
+              <mat-card-title class="card-title">Conta aplicação</mat-card-title>
+              <mat-card-subtitle class="card-description">Cooperativa Viacredi</mat-card-subtitle>
+            </mat-card-title-group>
+
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-2 offset-sm-1">
+                  <mat-icon>credit_card</mat-icon>
+                </div>
+
+                <div class="col-sm-8">
+                  <mat-card-subtitle>Número da conta</mat-card-subtitle>
+                  <p class="card-content-description">557932-4</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <a class="col-sm-5 offset-sm-1 card-content-button" href="">Duplicar conta</a>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="col-sm-3">
+          <mat-card>
+            <mat-card-title-group>
+              <mat-card-title class="card-title">Conta corrente</mat-card-title>
+              <mat-card-subtitle class="card-description">Cooperativa Viacredi</mat-card-subtitle>
+            </mat-card-title-group>
+
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-2 offset-sm-1">
+                  <mat-icon>credit_card</mat-icon>
+                </div>
+
+                <div class="col-sm-8">
+                  <mat-card-subtitle>Número da conta</mat-card-subtitle>
+                  <p class="card-content-description">557932-4</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <a class="col-sm-5 offset-sm-1 card-content-button" href="">Duplicar conta</a>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+
     </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <mat-form-field appearance="fill">
-          <ng-template matStepLabel>Documentos</ng-template>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
+    <mat-step>
+      <ng-template matStepLabel>Documentos</ng-template>
     </mat-step>
 
     <mat-step>
       <ng-template matStepLabel>Dados cadastrais</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-      </div>
     </mat-step>
 
     <mat-step>
       <ng-template matStepLabel>Admissão</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-      </div>
     </mat-step>
   </mat-stepper>
 </div>

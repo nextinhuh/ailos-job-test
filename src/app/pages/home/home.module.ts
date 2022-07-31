@@ -8,13 +8,15 @@ import { MaterialModule } from 'src/app/modules/material.modules';
 import { HeaderComponent } from './shared/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AdmissionComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

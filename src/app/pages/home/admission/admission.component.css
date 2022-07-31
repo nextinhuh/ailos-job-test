@@ -30,11 +30,44 @@
   width: 170px;
   border-radius: 4px;
   background-color: #165C7D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   color: #FFF;
   font-family: 'Open Sans';
   font-size: 18px;
   line-height: 19px;
+}
+
+
+.card-title {
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 19px;
+  color: #040F14;
+}
+
+.card-content-description {
+  font-family: 'Open Sans';
+  font-size: 20px;
+  line-height: 19px;
+  color: #040F14;
+}
+
+.icon-check-custom {
+  color: #00C246;
+}
+
+.card-content-button {
+  text-decoration: none;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  line-height: 19px;
+  color: #165C7D;
+  margin-top: 8%;
+  margin-bottom: 5%;
 }
 
 footer {
